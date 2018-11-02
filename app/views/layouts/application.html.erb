@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>TheGossipProjectCrud</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="http://www.clker.com/cliparts/5/3/a/1/1366375232877897160lollipop.svg.med.png" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render'layouts/header' %>
+    
+    </div>
+    <% if !user_signed_in? %>
+      <div class="btn-group" role="group" style="float: right; padding: 10px;">
+        <a href="/users/sign_in" class="btn btn-secondary btn-sm btn-hover">Sign In</a>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="btn-group" role="group" style="float: right; padding: 10px;">
+        <a href="/users/edit" class="btn btn-secondary btn-sm btn-hover" style="border-right: 1px solid #fff;">Edit my profile</a>
+        <a rel="nofollow" data-method="delete" href="/users/sign_out" class="btn btn-secondary btn-sm btn-logout" style="border-left: 1px solid #fff;">Log out</a>
+      </div>
+    <% end %>
+
+    <% flash.each do |key, value| %>
+      <div style="display: inline-block; margin: 20px;" class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+    <%= render'layouts/footer' %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<h2 class="text-center margin-header-bis">List of all gossips:</h2>
+<% @gossip.each do |gossip| %>
+  <% if gossip.id % 2 != 0 %>
+	  <div class="row margin-header">
+		  <div class="col-sm-6">
+			  <div class="card" style="background-color: transparent; border-color: #000; margin: 15px;">
+				  <div class="card-body">
+					  <h5 class="card-title"><strong>Gossip n°<%= gossip.id %> - by <i><%= gossip.anonymous_gossiper %></i></strong></h5>
+					  <p class="card-text">"<%= gossip.content %>"</p>
+					  <a href="/gossip/<%= gossip.id %>" class="btn btn-hover">Show more</a>
+				  </div>
+			  </div>
+		  </div>
+	<% else %>
+		  <div class="col-sm-6">
+			  <div class="card" style="background-color: transparent; border-color: #000; margin: 15px;">
+				  <div class="card-body">
+					  <h5 class="card-title"><strong>Gossip n°<%= gossip.id %> - by <i><%= gossip.anonymous_gossiper %></i></strong></h5>
+					  <p class="card-text">"<%= gossip.content %>"</p>
+					  <a href="/gossip/<%= gossip.id %>" class="btn btn-hover">Show more</a>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	<% end %>
+<% end %>

@@ -1,0 +1,15 @@
+
+<div class="card" style="margin-bottom: 10px; opacity: 0.8;">
+  <div class="card-header">By
+    <i><%= comment.anonymous_commentor %></i>
+    <% if user_signed_in? %>
+      <p style="float: right;"> <%= link_to  'Delete', [comment.gossip, comment], method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><%= comment.content %></p>
+      <div class="blockquote-footer"><%= time_ago_in_words(comment.created_at) %> <cite title="Source Title">ago</cite></div>
+    </blockquote>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+<%= form_for([@gossip, @gossip.comments.build]) do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :anonymous_commentor %>
+  </p>
+  <p>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </p>
+  <br>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</div>
